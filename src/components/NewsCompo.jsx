@@ -16,7 +16,7 @@ export class NewsCompo extends Component {
   }
   async componentDidMount() {
     console.log("I'm copenentDid Mount" + this.state.q)
-    let api = `https://newsapi.org/v2/top-headlines?q=${this.state.q}&apiKey=d1a91cc764604836922abeb7893cce34&page=${this.state.page}&pageSize=20`
+    let api = `https://newsapi.org/v2/everything?q=${this.state.q}&apiKey=d1a91cc764604836922abeb7893cce34&page=${this.state.page}&pageSize=20`
     this.setState({ loading: true })
     let data = await fetch(api)
     let parseData = await data.json()
@@ -24,7 +24,7 @@ export class NewsCompo extends Component {
   }
 
   nextPage = async () => {
-    let api = `https://newsapi.org/v2/top-headlines?q=${this.state.q}&apiKey=d1a91cc764604836922abeb7893cce34&page=${this.state.page + 1}&pageSize=20`;
+    let api = `https://newsapi.org/v2/everything?q=${this.state.q}&apiKey=d1a91cc764604836922abeb7893cce34&page=${this.state.page + 1}&pageSize=20`;
     this.setState({ loading: true })
     let data = await fetch(api);
     let parseData = await data.json()
@@ -38,7 +38,7 @@ export class NewsCompo extends Component {
   }
 
   prevPage = async () => {
-    let api = `https://newsapi.org/v2/top-headlines?q=${this.state.q}&apiKey=d1a91cc764604836922abeb7893cce34&page=${this.state.page - 1}&pageSize=12`
+    let api = `https://newsapi.org/v2/everything?q=${this.state.q}&apiKey=d1a91cc764604836922abeb7893cce34&page=${this.state.page - 1}&pageSize=12`
     this.setState({ loading: true })
     let data = await fetch(api)
     let parseData = await data.json()
